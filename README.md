@@ -5,7 +5,7 @@ It was named Record because of the purpose of our system
 
 # File Structure
 Record
-
+│
 ├─analysis  Store and write tools to obtain user behavior and online judge system feedback
 
 ├─backend  Stored as the server of this system
