@@ -12,4 +12,6 @@ Record
 
 ├─flexibility  Use vue3 and related ui to provide page visualization services
 
+├─miniProgram  Use WeChat applet to provide convenient services
+
 └─solution  Python works for personalized recommendation
