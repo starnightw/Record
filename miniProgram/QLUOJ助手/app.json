@@ -1,33 +1,54 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/home/index",
+    "pages/problems/index",
+    "pages/contests/index",
+    "pages/myRecord/index",
+    "pages/logs/logs",
+    "pages/problems/problem/index",
+    "pages/loginInterface/login"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "QLUOJ助手",
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  
   "usingComponents": {
-    "van-button": "/miniprogram_npm//@vant/weapp/button/index"
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-skeleton": "/miniprogram_npm/@vant/weapp/skeleton/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
   },
-
   "tabBar": {
-    "custom": true,
-    "color": "#000000",
-    "selectedColor": "#000000",
-    "backgroundColor": "#000000",
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#f8f8f8",
+    "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "打卡"
+        "iconPath": "/img/icon/home.png",
+        "selectedIconPath": "/img/icon/home_ed.png",
+        "pagePath": "pages/home/index",
+        "text": "主页"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "上传"
+        "iconPath": "/img/icon/problemset.png",
+        "selectedIconPath": "/img/icon/problemset_ed.png",
+        "pagePath": "pages/problems/index",
+        "text": "题集"
+      },
+      {
+        "iconPath": "/img/icon/medal.png",
+        "selectedIconPath": "/img/icon/medal_ed.png",
+        "pagePath": "pages/contests/index",
+        "text": "比赛"
+      },
+      {
+        "iconPath": "/img/icon/my.png",
+        "selectedIconPath": "/img/icon/my_ed.png",
+        "pagePath": "pages/myRecord/index",
+        "text": "个人"
       }
     ]
   }

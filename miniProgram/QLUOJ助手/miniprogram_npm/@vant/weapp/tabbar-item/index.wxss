@@ -11,6 +11,7 @@
   justify-content: center;
   height: 100%;
   color: #646566;
+  background-color: #ffffff;
   color: var(--tabbar-item-text-color, #646566);
   font-size: 15px;
   font-size: var(--tabbar-item-font-size, 15px);
