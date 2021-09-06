@@ -6,7 +6,7 @@
     "pages/myRecord/index",
     "pages/logs/logs",
     "pages/problems/problem/index",
-    "pages/loginInterface/login"
+    "pages/showpage/show"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,7 +18,12 @@
   "usingComponents": {
     "van-button": "/miniprogram_npm/@vant/weapp/button/index",
     "van-skeleton": "/miniprogram_npm/@vant/weapp/skeleton/index",
-    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+    "van-notice-bar": "/miniprogram_npm/@vant/weapp/notice-bar/index",
+    "van-row": "/miniprogram_npm/@vant/weapp/row/index",
+    "van-col": "/miniprogram_npm/@vant/weapp/col/index",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index"
   },
   "tabBar": {
     "color": "#8a8a8a",

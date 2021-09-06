@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.backend.mapping.SolutionMapping">
+
+    <select id="selectByUserId" resultType="com.record.backend.pojo.Solution">
+        select * from solution where created_by=#{user_id}
+    </select>
+
+    <select id="selectByUserIdAndScore" resultType="com.record.backend.pojo.Solution">
+        select * from solution where created_by=#{user_id} and score=#{score}
+    </select>
+
+    <select id="selectByFromFirstTimeToLastTime" resultType="com.record.backend.pojo.Solution">
+        select * from solution where created_by=#{user_id} and timestamp(judgetime) between #{firstDayDate} and #{LastDayDate}
+    </select>
+
+</mapper>

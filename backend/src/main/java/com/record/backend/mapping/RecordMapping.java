@@ -16,8 +16,7 @@ import java.util.List;
 // @Repository
 public interface RecordMapping {
     // add 新的推荐
-    int addRecord(Record record);
+    boolean addRecord(Record record);
     // 使用userid获取数据
-    @Select("select * from record where user_id=#{user_id} and status=#{status}")
     List<Record> selectByUserIdAndStatus(Integer user_id,Integer status);
 }

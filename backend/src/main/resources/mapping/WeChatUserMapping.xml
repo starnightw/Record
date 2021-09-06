@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.backend.mapping.WeChatUserMapping">
+
+    <select id="selectByOpenId" resultType="com.record.backend.pojo.WeChatUser">
+        select * from wechat_user where openid=#{openid}
+    </select>
+
+    <select id="selectByUserId" resultType="com.record.backend.pojo.WeChatUser">
+        select * from wechat_user where user_id=#{user_id}
+    </select>
+
+    <insert id="addWeChatUser" parameterType="com.record.backend.pojo.WeChatUser">
+        insert into wechat_user (nick,openid,session_key,sex,user_id)
+            values (#{nick},#{openid},#{session_key},#{sex},#{user_id})
+    </insert>
+
+    <update id="updateWeChatUserByOpenidForUserId" parameterType="int">
+        update wechat_user set user_id=#{user_id} where openid=#{openid}
+    </update>
+
+    <update id="updateWeChatUserByOpenidForSessionKey" parameterType="int">
+        update wechat_user set session_key=#{session_key} where openid=#{openid}
+    </update>
+
+</mapper>

@@ -19,4 +19,9 @@ public class Result {
     private Integer code;
     private String msg;
     private Map<String,Object> data;
+
+    public Result(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
 }
