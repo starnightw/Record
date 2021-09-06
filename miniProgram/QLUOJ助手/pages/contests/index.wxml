@@ -1,0 +1,49 @@
+<!--pages/contests/index.wxml-->
+<wxs src="../../utils/time.wxs" module="module1" />
+<van-tabs active="{{ active }}" bind:change="onChangeActive">
+  <van-tab title="atcoder">
+    <van-collapse value="{{ activeNames }}" bind:change="onChangeActiveNames"> 
+      <van-collapse-item wx:for="{{atcoder}}" name="{{item.cid}}">
+        <view slot="title">{{item.title}}
+          <van-tag wx:if="{{item.begin_time>=timestamp||item.end_time<=timestamp}}" type="{{item.begin_time>=timestamp?'primary':'warning'}}">{{item.begin_time>=timestamp? "还未开始":"已经结束"}}</van-tag>
+          <van-tag wx:else type="success">正在进行</van-tag>
+        </view>
+        <view>{{item.cid}}</view>
+        <view>开始时间：{{module1.time_format(item.begin_time)}}</view>
+        <view>持续时间：{{item.duration}}</view>
+        <view>结束时间：{{module1.time_format(item.end_time)}}</view>
+        <view>地址：{{item.url}}\t<van-button plain type="info" size="mini" bindtap="copy" data-value="{{item.url}}">复制</van-button ></view>
+      </van-collapse-item>
+    </van-collapse>
+  </van-tab>
+  <van-tab title="codeforces">
+    <van-collapse value="{{ activeNames }}" bind:change="onChangeActiveNames">        
+      <van-collapse-item wx:for="{{codeforces}}" name="{{item.cid}}">
+        <view slot="title">{{item.title}}
+          <van-tag wx:if="{{item.begin_time>=timestamp||item.end_time<=timestamp}}" type="{{item.begin_time>=timestamp?'primary':'warning'}}">{{item.begin_time>=timestamp? "还未开始":"已经结束"}}</van-tag>
+          <van-tag wx:else type="success">正在进行</van-tag>
+        </view>
+        <view>{{item.cid}}</view>
+        <view>开始时间：{{module1.time_format(item.begin_time)}}</view>
+        <view>持续时间：{{item.duration}}</view>
+        <view>结束时间：{{module1.time_format(item.end_time)}}</view>
+        <view>地址：{{item.url}}\t<van-button plain type="info" size="mini" bindtap="copy" data-value="{{item.url}}">复制</van-button ></view>
+      </van-collapse-item>
+    </van-collapse>
+  </van-tab>
+  <van-tab title="qluoj">
+    <van-collapse value="{{ activeNames }}" bind:change="onChangeActiveNames">        
+      <van-collapse-item wx:for="{{qluoj}}" name="{{item.cid}}">
+        <view slot="title">{{item.title}}
+          <van-tag wx:if="{{item.begin_time>=timestamp||item.end_time<=timestamp}}" type="{{item.begin_time>=timestamp?'primary':'warning'}}">{{item.begin_time>=timestamp? "还未开始":"已经结束"}}</van-tag>
+          <van-tag wx:else type="success">正在进行</van-tag>
+        </view>
+        <view>{{item.cid}}</view>
+        <view>开始时间：{{module1.time_format(item.begin_time)}}</view>
+        <view>持续时间：{{item.duration}}</view>
+        <view>结束时间：{{module1.time_format(item.end_time)}}</view>
+        <view>地址：{{item.url}}\t<van-button plain type="info" size="mini" bindtap="copy" data-value="{{item.url}}">复制</van-button ></view>
+      </van-collapse-item>
+    </van-collapse>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,4 @@
+/* pages/myRecord/index.wxss */
+.box {
+  background-color: #f8f8f8;
+}

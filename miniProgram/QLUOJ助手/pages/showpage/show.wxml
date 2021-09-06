@@ -1,0 +1,9 @@
+<!--pages/loginInterface/login.wxml-->
+<view class="container">
+  <view class="show_box">
+    <image src="/img/qluoj.jpg"></image>
+    <view class="text">
+      这一个帮助ACMer们直观地查看自己在QLUOJ中的题库、刷题记录以及各大OJ 的比赛预告等信息的微信小程序，旨在让ACMer们在手机端就能便捷的查询训练进度和比赛信息，内置个人能力分析、学习路线推荐、每日一题一讲发布等多种功能标签。
+    </view>
+  </view>
+</view>

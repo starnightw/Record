@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/myRecord/index",
+          "pathName": "pages/myRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/loginInterface/login",
+          "pathName": "pages/loginInterface/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/problems/index",
+          "pathName": "pages/problems/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/contests/index",
+          "pathName": "pages/contests/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

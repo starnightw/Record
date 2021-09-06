@@ -1,0 +1,84 @@
+<!--pages/home/index.wxml-->
+<!-- 轻提示 -->
+<van-notice-bar
+  wx:if="{{ ifNoticeBar }}"
+  mode="link"
+  text="{{ noticeBarText }}"
+/>
+<van-dialog id="van-dialog"/>
+<view class="page_box">
+  <view class="head_box">
+    <van-row gutter="15">
+      <van-col span="12">
+        <view wx:if="{{islogin}}">
+          <!--雷达图-->
+          <view class="charts-box">
+            <canvas canvas-id="canvasRadar" id="canvasRadar" class="charts" bindtouchstart="touchRadar"></canvas>
+          </view>
+        </view>
+        <view wx:else> 
+          <view style="text-align: center; margin-top: 100rpx;">雷达分析图</view>
+        </view>
+      </van-col>
+      <van-col span="12">
+        <view class="right_box">
+          <view wx:if="{{islogin}}">
+            <text>{{timeText}}</text>
+            <image src="../../img/man.png"/>
+            <text style="font-size: 50rpx;">{{qluojNick}}</text>
+            <view class="row_box">
+              <van-row>
+                <van-col span="8">AC<image src="../../img/icon/up.png" /></van-col>
+                <van-col span="8">WA<image src="../../img/icon/up.png" /></van-col>
+                <van-col span="8">TLE<image src="../../img/icon/up.png" /></van-col>
+                <van-col span="8">RE<image src="../../img/icon/down.png" /></van-col>
+                <van-col span="8">CE<image src="../../img/icon/up.png" /></van-col>
+                <van-col span="8">MLE<image src="../../img/icon/down.png" /></van-col>
+              </van-row>
+            </view>
+          </view>
+          <view wx:else>
+            <text>{{timeText}}</text>
+            <image src="../../img/man.png"/>
+            <text style="font-size: 35rpx;">请绑定qluoj账号</text>
+            <view style="margin-top: 10rpx;"><van-button plain hairline type="info" size="small">点击绑定</van-button></view>
+          </view>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+  <view class="page_btns">
+    <text class="show_title">常用功能</text>
+    <van-grid gutter="10">
+      <van-grid-item icon="cluster" icon-class="icon-class" text="学习路线" />
+      <van-grid-item icon="comment" icon-class="icon-class" text="每日一讲" badge="1" />
+      <van-grid-item icon="eye" icon-class="icon-class" text="推荐历史" />
+      <van-grid-item icon="card" icon-class="icon-class" text="QLUOJ" />
+      <!-- 学习路线   每日一讲   推荐历史  QLUOJ -->
+    </van-grid>
+  </view>
+  <view class="body_box">
+    <text class="show_title">我的路线</text>
+    <view class="show_box">
+      <view wx:if="{{islogin}}">
+        ssss
+      </view>
+      <view wx:else>
+        请先绑定QLUOJ账号
+      </view>
+    </view>
+    <text class="show_title">今日一题</text>
+    <view class="show_box">
+      ssss
+    </view>
+    <text class="show_title">做题最近</text>
+    <view class="show_box">
+      <view wx:if="{{islogin}}">
+        ssss
+      </view>
+      <view wx:else>
+        请先绑定QLUOJ账号
+      </view>
+    </view>
+  </view>
+</view>

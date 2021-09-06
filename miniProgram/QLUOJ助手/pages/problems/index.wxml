@@ -1,0 +1,23 @@
+<!--pages/problems/index.wxml-->
+<van-row gutter="10">
+  <van-col span="8">
+    <button type="info" style="width:220rpx;">三</button>
+    <scroll-view scroll-y="true" style="height: 1000rpx;">
+      <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+        <van-sidebar-item title="{{ item }}" wx:for="{{ problemTags }}"  />
+      </van-sidebar>
+    </scroll-view>
+  </van-col>
+  <van-col span="16">
+      <view class="left">
+        <view wx:for="{{newProblemByTags}}" wx:key="">
+          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==0}}">{{item.title}}</view>
+        </view>
+      </view>
+      <view class="right">
+        <view wx:for="{{newProblemByTags}}" wx:key="">
+          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==1}}">{{item.title}}</view>
+        </view>
+      </view>
+  </van-col>
+</van-row>

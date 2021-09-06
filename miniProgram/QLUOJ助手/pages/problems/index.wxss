@@ -1,0 +1,17 @@
+/* pages/problems/index.wxss */
+.left{
+  width: 47%;
+  margin: 0 1% 0 2%;
+  float: left;
+ }
+.right{
+  width: 47%;
+  margin: 0 2% 0 1%;
+  float: left;
+ }
+.pubu_box{
+  border:2px solid #8f8f8f;
+  border-radius: 5px;
+  margin: 10rpx;
+  padding: 10rpx;
+}
