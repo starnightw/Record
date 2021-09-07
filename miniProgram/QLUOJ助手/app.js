@@ -1,6 +1,6 @@
 // app.js
 App({
-  apiUrl: "http://localhost:8080",
+  apiUrl: "https://izll.top",
   globalData: {
     userInfo: null,
   },

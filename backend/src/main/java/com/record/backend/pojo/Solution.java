@@ -28,4 +28,6 @@ public class Solution {
     private Integer score; // 分数
     private Integer created_by; //相对应用户id
 
+    private Problem problem;
+
 }

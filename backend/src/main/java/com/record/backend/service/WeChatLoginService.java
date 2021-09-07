@@ -10,5 +10,7 @@ public interface WeChatLoginService {
 
     Result WeChatLogin(String code);
 
-    Boolean WeChatIfLogin(String code, String token);
+    Result WechatLoginAddUserId(String openId, String username);
+
+    Boolean WeChatIfLogin(String openId, String token);
 }

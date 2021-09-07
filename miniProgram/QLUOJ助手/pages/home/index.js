@@ -1,6 +1,5 @@
 // pages/home/index.js
-import uCharts from '../../miniprogram_npm/u-charts/u-charts.js'
-import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
+import uCharts from '../../miniprogram_npm/u-charts/u-charts.js';
 var _self;
 var canvaRadar = null;
 Page({
@@ -13,6 +12,9 @@ Page({
     timeText:"", // 访问时间可返回的text
     qluojNick: "",
     isLogin: false,
+    show: false,
+    username: 'Along',
+    password: '1111111',
     
     loading: true, // 骨架图显示
     ifNoticeBar: false, //滚动条
@@ -25,12 +27,36 @@ Page({
     // 雷达图
     cWidth: '',
     cHeight: '',
+    
+    everyDayTeach: [],
+    // solution 最近做题
+    solution: {},
+  },
+
+  getUserInfo(event) {
+    console.log(event.detail);
+  },
+
+  onOpen() {
+    this.setData({ show: true });
+  },
+
+  onClose() {
+    this.setData({ show: false });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    let that = this
     this.setData({
       ifNoticeBar: true,
       noticeBarText: "正在加载"
@@ -45,17 +71,13 @@ Page({
     this.cWidth = wx.getSystemInfoSync().windowWidth * 0.9;
     this.cHeight = 500 / 750 * wx.getSystemInfoSync().windowWidth * 0.8;
     this.getServerData();
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    let that = this
+    this.getEveryDayTeaching()
+    
+    this.login()
     that.setData({
       loading: false,
     });
-    that.login()
     that.setTimeText()
   },
 
@@ -132,10 +154,11 @@ Page({
                   isLogin: true,
                   qluojNick: res.data.data.nickName
                 })
+                that.getTenSolutionNumber()
                 wx.setStorageSync("token",res.data.data.token)
                 wx.setStorageSync("openid",res.data.data.openid)
                 wx.setStorageSync("userid",res.data.data.user_id)
-
+                
               } else if(res.data.code == 201 || res.data.code == 202){
                 // 登录错误 
                 // wx.navigateTo({
@@ -180,6 +203,67 @@ Page({
     });
   },
 
+  getTenSolutionNumber() {
+    var app = getApp();  
+    let that = this
+    wx.request({
+      url: app.apiUrl+"/solution/getallten",
+      method: "POST",
+      data: {
+        userid: wx.getStorageSync('userid')
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token'),
+        'openid': wx.getStorageSync('openid')
+      },
+      success: (res) => {
+        console.log(res.data)
+        if(res.data.code === 200) {
+          that.setData({
+           solution: res.data.data.solutions
+          })
+        }
+      },
+      fail: ()=> {
+        wx.showToast({
+          title: '服务器连接失败',
+          icon: 'error',
+        })
+      }
+    })
+  },
+
+  getEveryDayTeaching() {
+    var app = getApp();  
+    let that = this
+    wx.request({
+      url: app.apiUrl+"/everyDay/teaching",
+      method: "POST",
+      data: {
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token'),
+        'openid': wx.getStorageSync('openid')
+      },
+      success: (res) => {
+        console.log(res.data.data.everyDayTeach)
+        if(res.data.code === 200) {
+          that.setData({
+            everyDayTeach: res.data.data.everyDayTeach[9]
+          })
+        }
+      },
+      fail: ()=> {
+        wx.showToast({
+          title: '服务器连接失败',
+          icon: 'error',
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -220,6 +304,55 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  toPage(e){
+    // 根据传参键值，获取点击事件传来的id值
+    let url = e.currentTarget.dataset.url
+    if(url){
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+      })
+    }else {
+      wx.showToast({
+        title: '还在开发中~',
+        icon: 'none',
+        duration: 1000//持续的时间
+      })
+    }
+  },
+
+  updateUserId(){
+    var app = getApp();  
+    let that = this
+    wx.request({
+      url: app.apiUrl+"/wechat/updateuserid",
+      method: "POST",
+      data: {
+        openid: wx.getStorageSync('openid'),
+        username: that.data.username
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'token': wx.getStorageSync('token'),
+        'openid': wx.getStorageSync('openid')
+      },
+      success: (res) => {
+        console.log(res.data)
+        this.onReady()
+        if(res.data.data) {
+          that.setData({
+            isLogin: true
+          })
+        }
+      },
+      fail: ()=> {
+        wx.showToast({
+          title: '服务器连接失败',
+          icon: 'error',
+        })
+      }
+    })
   },
 
   // 
@@ -282,5 +415,6 @@ Page({
       }
     });
   },
+
 
 })

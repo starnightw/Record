@@ -6,7 +6,9 @@
     "pages/myRecord/index",
     "pages/logs/logs",
     "pages/problems/problem/index",
-    "pages/showpage/show"
+    "pages/home/showpage/show",
+    "pages/home/everyDay/index",
+    "pages/home/studyRoute/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +25,10 @@
     "van-row": "/miniprogram_npm/@vant/weapp/row/index",
     "van-col": "/miniprogram_npm/@vant/weapp/col/index",
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
-    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index"
+    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
+    "wemark": "/utils/wemark/wemark",
+    "van-divider": "/miniprogram_npm/@vant/weapp/divider/index",
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index"
   },
   "tabBar": {
     "color": "#8a8a8a",
@@ -48,12 +53,6 @@
         "selectedIconPath": "/img/icon/medal_ed.png",
         "pagePath": "pages/contests/index",
         "text": "比赛"
-      },
-      {
-        "iconPath": "/img/icon/my.png",
-        "selectedIconPath": "/img/icon/my_ed.png",
-        "pagePath": "pages/myRecord/index",
-        "text": "个人"
       }
     ]
   }

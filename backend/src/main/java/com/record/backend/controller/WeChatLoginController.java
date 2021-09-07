@@ -34,6 +34,15 @@ public class WeChatLoginController {
         return weChatLoginService.WeChatLogin(code);
     }
 
+    @RequestMapping(value="/wechat/updateuserid", method = RequestMethod.POST)
+    @ResponseBody
+    public Result wxUpdateUserId(@RequestBody Map<String,String> reqbody){
+        String openid = reqbody.get("openid");
+        String username = reqbody.get("username");
+        System.out.println(username+"=====");
+        return weChatLoginService.WechatLoginAddUserId(openid,username);
+    }
+
     // @RequestMapping(value="/wechat/iflogin", method = RequestMethod.POST)
     // @ResponseBody
     // public Result wxIfLogin(@RequestBody Map<String,String> reqbody){

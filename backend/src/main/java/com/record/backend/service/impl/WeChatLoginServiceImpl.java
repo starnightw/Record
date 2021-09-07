@@ -62,7 +62,7 @@ public class WeChatLoginServiceImpl implements WeChatLoginService {
                 map.put("token",token);
                 map.put("openid",openid);
                 System.out.println("还未关联qluoj账号");
-                return new Result(202,"登录成功,还未关联qluoj账号,将影响正常使用",map);
+                return new Result(202,"访问成功,还未关联qluoj账号,将影响正常使用",map);
             }else {
                 System.out.println(weChatUser.getUser_id());
                 User user = userMapping.selectByUserId(weChatUser.getUser_id());
@@ -76,6 +76,19 @@ public class WeChatLoginServiceImpl implements WeChatLoginService {
                 return new Result(200,"登录成功",map);
             }
         }
+    }
+
+    @Override
+    public Result WechatLoginAddUserId(String openId, String username) {
+        User user = userMapping.selectByUserName(username);
+        System.out.println(user);
+        System.out.println(openId);
+        System.out.println(username);
+        Map<String,Object> map = new HashMap<>();
+        WeChatUser res =  weChatUserMapping.updateWeChatUserByOpenidForUserId(openId,user.getId());
+        map.put("res",res);
+        map.put("userId",user.getId());
+        return new Result(200,"登录成功",map);
     }
 
     @Override

@@ -14,4 +14,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapping {
     // 查询username是否存在并返回信息
     User selectByUserId(Integer id);
+
+    User selectByUserName(String username);
 }

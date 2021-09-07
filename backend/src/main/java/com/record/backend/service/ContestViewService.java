@@ -10,4 +10,6 @@ public interface ContestViewService {
 
     Result getAllContestViewByType();
 
+    Result getAllEveryDayTeach();
+
 }

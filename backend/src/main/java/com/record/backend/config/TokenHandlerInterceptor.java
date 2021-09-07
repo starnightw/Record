@@ -31,7 +31,9 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
     private final String[] urls = {
             "/wechat/login",
             "/problem/getproblemsbytags",
-            "/contest/getallbytype"
+            "/contest/getallbytype",
+            "/problem/getproblembyid",
+            "/everyDay/teaching"
     };
 
     /**

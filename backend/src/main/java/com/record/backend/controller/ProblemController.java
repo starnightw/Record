@@ -38,8 +38,8 @@ public class ProblemController {
     @RequestMapping(value="/problem/getproblembyid", method = RequestMethod.POST)
     @ResponseBody
     public Result problemById(@RequestBody Map<String,String> reqbody) {
-        Integer id = Integer.valueOf(reqbody.get("id"));
-        return problemService.problemById(id);
+        Integer problem_id = Integer.valueOf(reqbody.get("problem_id"));
+        return problemService.problemById(problem_id);
     }
 
 }

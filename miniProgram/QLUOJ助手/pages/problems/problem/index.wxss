@@ -1,1 +1,7 @@
 /* pages/problems/problem/index.wxss */
+.problem_box{
+  margin: 40rpx;
+}
+.problem_body{
+  margin-top: 60rpx;
+}

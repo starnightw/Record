@@ -2,6 +2,8 @@
   "usingComponents": {
     "van-grid": "/miniprogram_npm/@vant/weapp/grid/index",
     "van-grid-item": "/miniprogram_npm/@vant/weapp/grid-item/index",
-    "van-field": "/miniprogram_npm/@vant/weapp/field/index"
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index"
   }
 }

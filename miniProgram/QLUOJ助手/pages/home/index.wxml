@@ -10,7 +10,7 @@
   <view class="head_box">
     <van-row gutter="15">
       <van-col span="12">
-        <view wx:if="{{islogin}}">
+        <view wx:if="{{isLogin}}">
           <!--雷达图-->
           <view class="charts-box">
             <canvas canvas-id="canvasRadar" id="canvasRadar" class="charts" bindtouchstart="touchRadar"></canvas>
@@ -22,7 +22,7 @@
       </van-col>
       <van-col span="12">
         <view class="right_box">
-          <view wx:if="{{islogin}}">
+          <view wx:if="{{isLogin}}">
             <text>{{timeText}}</text>
             <image src="../../img/man.png"/>
             <text style="font-size: 50rpx;">{{qluojNick}}</text>
@@ -40,8 +40,8 @@
           <view wx:else>
             <text>{{timeText}}</text>
             <image src="../../img/man.png"/>
-            <text style="font-size: 35rpx;">请绑定qluoj账号</text>
-            <view style="margin-top: 10rpx;"><van-button plain hairline type="info" size="small">点击绑定</van-button></view>
+            <text style="font-size: 35rpx;">请绑定qluoj账号(现为测试账号)</text>
+            <view style="margin-top: 10rpx;"><van-button plain hairline type="info" size="small" bindtap="onOpen">点击绑定</van-button></view>
           </view>
         </view>
       </van-col>
@@ -50,18 +50,23 @@
   <view class="page_btns">
     <text class="show_title">常用功能</text>
     <van-grid gutter="10">
-      <van-grid-item icon="cluster" icon-class="icon-class" text="学习路线" />
-      <van-grid-item icon="comment" icon-class="icon-class" text="每日一讲" badge="1" />
-      <van-grid-item icon="eye" icon-class="icon-class" text="推荐历史" />
-      <van-grid-item icon="card" icon-class="icon-class" text="QLUOJ" />
-      <!-- 学习路线   每日一讲   推荐历史  QLUOJ -->
+      <van-grid-item icon="cluster" icon-class="icon-class" text="学习路线"  bindtap="toPage" data-url="/pages/home/studyRoute/index"/>
+      <van-grid-item icon="comment" icon-class="icon-class" text="每日一讲" badge="1"  bindtap="toPage" data-url="/pages/home/everyDay/index" />
+      <van-grid-item icon="eye" icon-class="icon-class" text="推荐历史"  bindtap="toPage" data-url="" />
+      <van-grid-item icon="card" icon-class="icon-class" text="QLUOJ"  bindtap="toPage" data-url="/pages/home/showpage/show" />
+      <!-- 学习路线   每日一讲   推荐历史  QLUOJ --><van-toast id="van-toast" />
     </van-grid>
   </view>
   <view class="body_box">
     <text class="show_title">我的路线</text>
-    <view class="show_box">
-      <view wx:if="{{islogin}}">
-        ssss
+    <view class="show_box"  bindtap="toPage" data-url="/pages/home/studyRoute/index" >
+      <view wx:if="{{isLogin}}">
+        <view style="margin: 10rpx;">
+          <text class="route_text">C语言入门Part7-二维数组的应用</text>
+        </view>
+        <view style="margin: 10rpx;">
+          <text class="route_text">C语言入门Part8-字符数组的应用</text>
+        </view>
       </view>
       <view wx:else>
         请先绑定QLUOJ账号
@@ -69,12 +74,14 @@
     </view>
     <text class="show_title">今日一题</text>
     <view class="show_box">
-      ssss
+      <view bindtap="toPage" data-url="/pages/home/everyDay/index" >{{everyDayTeach.name}}</view>
     </view>
-    <text class="show_title">做题最近</text>
+    <text class="show_title">最近做题</text>
     <view class="show_box">
-      <view wx:if="{{islogin}}">
-        ssss
+      <view wx:if="{{isLogin}}">
+        <van-cell-group>
+          <van-cell wx:for="{{solution}}" title="运行id：{{item.id}}" value="最终结果：{{item.pass_info}}" label="题目id：-------------{{item.problem_id}}最终得分：----------{{item.score}}分" border="{{ false }}" />
+        </van-cell-group>
       </view>
       <view wx:else>
         请先绑定QLUOJ账号
@@ -82,3 +89,32 @@
     </view>
   </view>
 </view>
+<van-dialog
+  use-slot
+  width="280px"
+  title="绑定QLUOJ账号"
+  show="{{ show }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="updateUserId"
+>
+  <van-cell-group 
+  width="280px">
+    <van-field
+    value="{{ username }}"
+    required
+    clearable
+    label="用户名"
+    placeholder="请输入用户名"
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="密码"
+    placeholder="请输入密码"
+    required
+    border="{{ false }}"
+  />
+  </van-cell-group>
+</van-dialog>

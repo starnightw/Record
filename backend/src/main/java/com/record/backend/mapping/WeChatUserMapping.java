@@ -21,7 +21,7 @@ public interface WeChatUserMapping {
     // 添加新的微信用户
     boolean addWeChatUser(WeChatUser weChatUser);
     // 根据openid保存 他的 user_id
-    boolean updateWeChatUserByOpenidForUserId(String openid, Integer user_id);
+    WeChatUser updateWeChatUserByOpenidForUserId(String openid, Integer user_id);
     //如果过期 根据openid更新 他的 session_key
-    boolean updateWeChatUserByOpenidForSessionKey(String openid, String session_key);
+    Integer updateWeChatUserByOpenidForSessionKey(String openid, String session_key);
 }

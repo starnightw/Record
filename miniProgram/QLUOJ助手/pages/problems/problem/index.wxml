@@ -1,2 +1,34 @@
 <!--pages/problems/problem/index.wxml-->
-<text>pages/problems/problem/index.wxml</text>
+<view class="problem_box">
+  <text style="font-size: 50rpx;">{{problem.id}}.{{problem.title}}</text>
+  <van-divider />
+  <view>
+    <view>Time Limit : {{problem.time_limit}} 秒</view>
+    <view>Memory Limit : {{problem.memory_limit}} MB</view>
+    <van-tag plain type="primary">{{problem.tags}}</van-tag>
+    <van-tag wx:if="{{problem.spj==1}}" plain type="primary">spj</van-tag>
+  </view>
+  <view class="problem_body" wx:if="{{problem.description}}">
+    <wemark md="{{problem.description}}" link highlight type="wemark"></wemark>
+  </view>
+  <view class="problem_body" wx:if="{{problem.input}}">
+    <text style="font-size: 40rpx;">Input</text>
+    <van-divider />
+    {{problem.input}}
+  </view>
+  <view class="problem_body" wx:if="{{problem.output}}">
+    <text style="font-size: 40rpx;">Output</text>
+    <van-divider />
+    {{problem.output}}
+  </view>
+  <view class="problem_body" wx:if="{{problem.hint}}">
+    <text style="font-size: 40rpx;">Hint</text>
+    <van-divider />
+    <wemark md="{{problem.hint}}" link highlight type="wemark"></wemark>
+  </view>
+  <view class="problem_body" wx:if="{{problem.source}}">
+    <text style="font-size: 40rpx;">Source</text>
+    <van-divider />
+    {{problem.source}}
+  </view> 
+</view>

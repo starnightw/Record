@@ -65,7 +65,7 @@ Page({
         console.log(res.data)
         if(res.data.code === 200) {
           this.setData({
-            newProblemByTags : res.data.data.problems
+            newProblemByTags : res.data.data.problem
           })
           that.setColor()
         }
@@ -108,6 +108,14 @@ Page({
           icon: 'error',
         })
       }
+    })
+  },
+
+  toProblemPage(e){
+    // 根据传参键值，获取点击事件传来的id值
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../problems/problem/index?problem_id=' + e.currentTarget.dataset.id,
     })
   },
 

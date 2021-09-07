@@ -15,7 +15,7 @@
             values (#{nick},#{openid},#{session_key},#{sex},#{user_id})
     </insert>
 
-    <update id="updateWeChatUserByOpenidForUserId" parameterType="int">
+    <update id="updateWeChatUserByOpenidForUserId" parameterType="com.record.backend.pojo.WeChatUser">
         update wechat_user set user_id=#{user_id} where openid=#{openid}
     </update>
 

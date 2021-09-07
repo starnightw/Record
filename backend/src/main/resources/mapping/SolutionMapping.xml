@@ -3,7 +3,7 @@
 <mapper namespace="com.record.backend.mapping.SolutionMapping">
 
     <select id="selectByUserId" resultType="com.record.backend.pojo.Solution">
-        select * from solution where created_by=#{user_id}
+        select * from solution where created_by=#{user_id} ORDER BY judgetime DESC limit 5
     </select>
 
     <select id="selectByUserIdAndScore" resultType="com.record.backend.pojo.Solution">

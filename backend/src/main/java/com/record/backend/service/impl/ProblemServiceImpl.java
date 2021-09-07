@@ -1,6 +1,7 @@
 package com.record.backend.service.impl;
 
 import com.record.backend.mapping.ProblemMapping;
+import com.record.backend.pojo.Problem;
 import com.record.backend.pojo.Result;
 import com.record.backend.service.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,16 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public Result problemsByTags(String tags) {
-        List<String> tapsList = problemMapping.selectAllProblemTags();
         Map<String,Object> problemMap = new HashMap<>();
-        problemMap.put("problems", problemMapping.selectAllProblemByTags(tapsList.get(Integer.parseInt(tags))));
+        problemMap.put("problems", problemMapping.selectAllProblemByTags(tags));
         return new Result(200,"查询成功",problemMap);
     }
 
     @Override
-    public Result problemById(Integer id) {
-        return null;
+    public Result problemById(Integer problem_id) {
+        Problem problem = problemMapping.selectProblemById(problem_id);
+        Map<String,Object> problemMap = new HashMap<>();
+        problemMap.put("problem", problem);
+        return new Result(200,"查询成功",problemMap);
     }
 }

@@ -15,7 +15,7 @@
     </select>
 
     <select id="selectAllProblemByTags" resultType="com.record.backend.pojo.Problem">
-        select id, title,tags from problem where tags=#{tags}
+        select id, title,tags from problem where tags like concat('%',#{tags},'%')
     </select>
 
 </mapper>

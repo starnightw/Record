@@ -11,12 +11,12 @@
   <van-col span="16">
       <view class="left">
         <view wx:for="{{newProblemByTags}}" wx:key="">
-          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==0}}">{{item.title}}</view>
+          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==0}}" bindtap="toProblemPage" data-id="{{item.id}}" >{{item.id}}.{{item.title}}</view>
         </view>
       </view>
       <view class="right">
         <view wx:for="{{newProblemByTags}}" wx:key="">
-          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==1}}">{{item.title}}</view>
+          <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==1}}" bindtap="toProblemPage" data-id="{{item.id}}" >{{item.id}}.{{item.title}}</view>
         </view>
       </view>
   </van-col>

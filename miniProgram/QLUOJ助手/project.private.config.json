@@ -35,6 +35,18 @@
           "pathName": "pages/contests/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/problems/problem/index",
+          "pathName": "pages/problems/problem/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/everyDay/index",
+          "pathName": "pages/everyDay/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
