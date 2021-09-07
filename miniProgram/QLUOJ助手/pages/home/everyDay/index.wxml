@@ -1,0 +1,6 @@
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item wx:for="{{everyDayTeach}}" title="{{item.name}}" name="{{item.id}}">
+    <text style="font-size: 30rpx; color: #5f5f5f;">{{item.title}}</text>
+    <wemark md="{{item.recordContent}}" link highlight type="wemark"></wemark>
+  </van-collapse-item>
+</van-collapse>

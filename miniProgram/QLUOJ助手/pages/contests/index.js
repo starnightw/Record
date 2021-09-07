@@ -31,6 +31,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.showToast({
+      title: '正在加载',
+      icon: 'loading',
+    })
     wx.setNavigationBarTitle({
       title: '相关比赛'
     })

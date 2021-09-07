@@ -80,7 +80,7 @@
     <view class="show_box">
       <view wx:if="{{isLogin}}">
         <van-cell-group>
-          <van-cell wx:for="{{solution}}" title="运行id：{{item.id}}" value="最终结果：{{item.pass_info}}" label="题目id：-------------{{item.problem_id}}最终得分：----------{{item.score}}分" border="{{ false }}" />
+          <van-cell wx:for="{{solution}}" title="运行id：{{item.id}}" value="最终结果：{{item.pass_info}}" label="题目id：{{item.problem_id}}" border="{{ false }}" />
         </van-cell-group>
       </view>
       <view wx:else>

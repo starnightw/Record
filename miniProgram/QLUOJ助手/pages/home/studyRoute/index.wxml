@@ -1,0 +1,23 @@
+<!--pages/home/studyRoute/index.wxml-->
+<van-row gutter="10">
+  <van-col span="8">
+    <scroll-view scroll-y="true">
+      <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+        <van-sidebar-item title="{{ item }}" wx:for="{{ route }}"  />
+      </van-sidebar>
+    </scroll-view>
+  </van-col>
+  <van-col span="16">
+    <view class="left">
+      <view wx:for="{{problems}}" wx:key="">
+      <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==0}}" bindtap="toProblemPage" data-id="{{item.id}}" >{{item.id}}.{{item.title}}</view>
+      </view>
+    </view>
+    <view class="right">
+      <view wx:for="{{problems}}" wx:key="">
+        <view class="pubu_box" style="background-color:{{randomColorArr[index]}}" wx:if="{{index%2==1}}" bindtap="toProblemPage" data-id="{{item.id}}" >{{item.id}}.{{item.title}}</view>
+      </view>
+    </view>
+  </van-col>
+</van-row>
+

@@ -1,0 +1,18 @@
+/* pages/home/studyRoute/index.wxss */
+.left{
+  width: 45%;
+  margin: 0 2% 0 3%;
+  float: left;
+ }
+.right{
+  width: 45%;
+  margin: 0 2% 0 3%;
+  float: left;
+ }
+ .pubu_box{
+  border:2px solid #8f8f8f;
+  border-radius: 5px;
+  margin: 10rpx;
+  padding: 10rpx;
+  color: #fff;
+}
