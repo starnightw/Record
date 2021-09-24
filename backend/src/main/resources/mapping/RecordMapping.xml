@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.backend.mapping.RecordMapping">
+
+    <select id="selectAllRecordUser" resultType="com.record.backend.pojo.Record_User">
+        select id,user_id,u_status from record_user where u_status=#{u_status};
+    </select>
+
+    <insert id="addUserInRecord" parameterType="com.record.backend.pojo.Record_User">
+        insert into record_user (user_id, u_status) VALUES (#{user_id},1)
+    </insert>
+
+    <update id="noUserInRecord" parameterType="com.record.backend.pojo.Record_User">
+        update record_user set u_status=0 where user_id=#{user_id}
+    </update>
+
+    <insert id="addRecord" >
+        insert into record ( record_id, problem_id, status )
+        values
+        <foreach collection="list" separator="," item="item">
+            (#{item.record_id},#{item.problem_id},#{item.status})
+        </foreach>
+    </insert>
+
+    <select id="selectByUserIdAndStatus" resultType="com.record.backend.pojo.Record">
+        select r.id, r.record_id, r.problem_id, r.status
+        from record_user u
+        left join record r
+            on u.id = r.record_id
+        where r.record_id = #{user_id} and u_status = #{u_status}
+    </select>
+
+    <update id="openProblem" parameterType="com.record.backend.pojo.Record_User">
+        update record set status=1 where id = #{id}
+    </update>
+
+</mapper>

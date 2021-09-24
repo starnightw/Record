@@ -7,7 +7,7 @@
     </select>
 
     <select id="selectByUserIdAndScore" resultType="com.record.backend.pojo.Solution">
-        select * from solution where created_by=#{user_id} and score=#{score}
+        select distinct problem_id,score from solution where created_by = #{user_id} and score >= #{score}
     </select>
 
     <select id="selectByFromFirstTimeToLastTime" resultType="com.record.backend.pojo.Solution">

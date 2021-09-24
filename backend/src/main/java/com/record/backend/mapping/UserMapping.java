@@ -4,6 +4,9 @@ import com.record.backend.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: Along
  * @Date: Created in 22:50 2021/9/1
@@ -16,4 +19,6 @@ public interface UserMapping {
     User selectByUserId(Integer id);
 
     User selectByUserName(String username);
+
+    List<User> getAllSolutionAsUsers();
 }

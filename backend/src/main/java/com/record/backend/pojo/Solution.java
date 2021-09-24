@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Solution {
+public class Solution implements Comparable<Solution>{
     private Integer id;
     private Integer problem_id;
     private Integer time;
@@ -25,9 +25,18 @@ public class Solution {
     private Integer code_length; // 代码长度
     private Date judgetime; // 判题机运行的时间
     private String pass_info; // 通过率
-    private Integer score; // 分数
+    public Integer score; // 分数
     private Integer created_by; //相对应用户id
 
-    private Problem problem;
+    // private Problem problem;
+
+    public Solution(int problem_id, int score) {
+        this.problem_id = problem_id;
+        this.score = score;
+    }
+
+    public int compareTo(Solution o) {
+        return problem_id < o.problem_id ? -1 : 1;
+    }
 
 }

@@ -1,8 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
+// import * as echarts from 'echarts';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
-Vue.config.productionTip = false
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+const app = createApp(App);
+app.use(ElementPlus);
+// app.echarts = echarts; // 引入echarts 图表库
+app.use(store).use(router).mount('#app');

@@ -6,15 +6,13 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Along
- * @Date: Created in 0:33 2021/9/2
- * 推荐
+ * @Date: Created in 14:12 2021/9/24
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
+public class Record_User {
     private Integer id;
-    private Integer record_id;
-    private Integer problem_id;
-    private Integer status; // 状态 0 没打开 1 打开了
+    private Integer user_id;
+    private Integer u_status; // 用户状态 1 需要推荐 0 不需要推荐
 }

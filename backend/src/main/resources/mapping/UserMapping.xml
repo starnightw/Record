@@ -9,4 +9,23 @@
     <select id="selectByUserName" resultType="com.record.backend.pojo.User">
         select id, username,nickname from user where username=#{username}
     </select>
+
+    <resultMap id="SolutionList" type="com.record.backend.pojo.User">
+        <id column="uId" property="id"></id>
+        <result column="nName" property="nickname"></result>
+        <collection property="solutionList" ofType="com.record.backend.pojo.Solution" javaType="java.util.ArrayList">
+            <result column="pId" property="problem_id"></result>
+            <result column="score" property="score"></result>
+        </collection>
+    </resultMap>
+
+    <!--获取所有的用户成功提交的数据-->
+    <select id="getAllSolutionAsUsers" resultMap="SolutionList">
+        select u.id as uId, u.nickname as nName, s.problem_id as pId, s.score as score
+        from user u
+        left join solution s
+        on u.id = s.created_by
+        where score >= 100;
+    </select>
+
 </mapper>

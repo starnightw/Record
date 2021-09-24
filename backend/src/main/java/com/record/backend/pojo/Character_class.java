@@ -6,15 +6,14 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: Along
- * @Date: Created in 0:33 2021/9/2
- * 推荐
+ * @Date: Created in 0:32 2021/9/25
+ * 人物志类别
+ *      charaClass: String, // 分类
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
+public class Character_class {
     private Integer id;
-    private Integer record_id;
-    private Integer problem_id;
-    private Integer status; // 状态 0 没打开 1 打开了
+    private String className;
 }

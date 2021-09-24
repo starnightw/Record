@@ -14,6 +14,10 @@ Record
 
 ├─flexibility  使用 vue3 和相关 ui 提供页面可视化服务
 
-├─miniProgram  使用微信小程序提供便捷服务
+├─miniProgram  使用移动应用提供便捷服务
+
+​	├─program  uniapp 实现app
+
+​	└─QLUOJ助手  微信小程序
 
 └─solution  Python 适用于个性化推荐
